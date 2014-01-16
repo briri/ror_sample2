@@ -1,5 +1,5 @@
-<% if session[:user_id] %>
-    <%= link_to 'Logout', users_path(session[:user_id]), method: :delete %>
+<% if is_logged_in %>
+    <%= link_to 'Logout', users_path(get_current_user.id), method: :delete %>
 <% else %>
     <%= link_to 'Login', users_path %>
     <%= link_to 'Register', 'users/new' %>
