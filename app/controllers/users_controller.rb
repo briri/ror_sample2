@@ -13,16 +13,10 @@ class UsersController < ApplicationController
 
     @msg = "#{@user.inspect}<br /><br />#{params.inspect}<br /><br />"
 
-p params.inspect
-p User.all
-p @user.inspect
+    unless @user.empty?
 
-    unless @user.nil?
-
-      p @user.methods
-      
-      if @user.password == params[:password]
-        session[:user_id] = @user.id
+      if @user.first.password == params[:password]
+        session[:user_id] = @user.first.id
 
         redirect_to posts_path
       else
