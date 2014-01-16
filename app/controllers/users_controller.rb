@@ -25,6 +25,8 @@ class UsersController < ApplicationController
       render 'show'
     end
 
+    @msg += "<br />#{@user.inspect}<br />#{params.inspect}"
+
   end
 
   def logout
