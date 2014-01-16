@@ -23,4 +23,6 @@
   <% end %>
 </table>
 
-<%= link_to 'New post', new_post_path %>
+<% if is_logged_in %>
+    <%= link_to 'New post', new_post_path %>
+<% end %>
