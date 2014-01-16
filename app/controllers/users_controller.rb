@@ -14,6 +14,7 @@ class UsersController < ApplicationController
     @msg = "#{@user.inspect}<br /><br />#{params.inspect}<br /><br />"
 
 p params.inspect
+p User.all
 p @user.inspect
 
     unless @user.nil?
