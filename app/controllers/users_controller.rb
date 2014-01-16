@@ -18,6 +18,9 @@ p User.all
 p @user.inspect
 
     unless @user.nil?
+
+      p @user.methods
+      
       if @user.password == params[:password]
         session[:user_id] = @user.id
 
