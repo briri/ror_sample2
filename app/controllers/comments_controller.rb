@@ -14,6 +14,7 @@ class CommentsController < ApplicationController
 # Protected by http_basic_auth
 # -------------------------------------------------------
   def destroy
+    redirect_to index unless is_logged_in
     @post = Post.find(params[:post_id])
     @comment = @post.comments.find(params[:id])
     @comment.destroy
