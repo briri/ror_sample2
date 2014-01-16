@@ -9,7 +9,7 @@ class UsersController < ApplicationController
   end
 
   def login
-    @user = User.where(login: params[:login])
+    @user = User.where(login: 'briley')
 
     @msg = "#{@user.inspect}<br /><br />#{params.inspect}<br /><br />"
 
