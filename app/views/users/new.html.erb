@@ -1,0 +1,19 @@
+<h1>Register</h1>
+
+<%= form_for(:user, :url => 'login', :method => 'post') do |f| %>
+    <p>
+      <%= f.label :login %><br />
+      <%= f.text_field :login %>
+    </p>
+    <p>
+      <%= f.label :password %><br />
+      <%= f.text_field :password %>
+    </p>
+    <p>
+      <%= f.label :email %><br />
+      <%= f.text_field :email %>
+    </p>
+    <p>
+      <%= f.submit %>
+    </p>
+<% end %>
