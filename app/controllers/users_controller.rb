@@ -11,7 +11,7 @@ class UsersController < ApplicationController
   def login
     @user = User.find_by(:login => params[:login])
 
-    if @user
+    unless @user.nil?
       if @user.password == params[:password]
         session[:user_id] = @user.id
 
@@ -30,7 +30,7 @@ class UsersController < ApplicationController
   def logout
     @user = session[:user_id]
 
-    if @user
+    unless @user.nil?
       session[:user_id] = nil
     end
 
