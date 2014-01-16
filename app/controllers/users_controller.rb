@@ -18,11 +18,11 @@ class UsersController < ApplicationController
         redirect_to posts_path
       else
         @msg = "Invalid password!"
-        render 'login'
+        render 'show'
       end
     else
       @msg = "Invalid login!"
-      render 'login'
+      render 'show'
     end
 
   end
