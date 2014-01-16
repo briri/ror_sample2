@@ -9,9 +9,6 @@ class UsersController < ApplicationController
   end
 
   def login
-
-puts params.inspect
-
     usrs = User.where(login: "#{params[:user][:login]}")
 
     unless usrs.empty?

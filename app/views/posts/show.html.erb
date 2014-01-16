@@ -17,4 +17,6 @@
 <%= render 'comments/form' %>
 
 <%= link_to 'Back', posts_path %>
-<%= link_to 'Edit', edit_post_path(@post) %>
+<% if is_logged_in %>
+  <%= link_to 'Edit', edit_post_path(@post) %>
+<% end %>
