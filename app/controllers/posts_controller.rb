@@ -1,5 +1,3 @@
-require_relative '../../app/helpers/application_helper'
-
 class PostsController < ApplicationController
 
 #  http_basic_authenticate_with name: "admin", password: "secret",
@@ -17,17 +15,14 @@ class PostsController < ApplicationController
 # Protected by http_basic_auth
 # ------------------------------------------------------------
   def edit
-    redirect_to index unless is_logged_in
     @post = Post.find(params[:id])
   end
 
   def new
-    redirect_to index unless is_logged_in
     @post = Post.new
   end
 
   def update
-    redirect_to index unless is_logged_in
     @post = Post.find(params[:id])
 
     if @post.update(params[:post].permit(:title, :text))
@@ -38,7 +33,6 @@ class PostsController < ApplicationController
   end
 
   def create
-    redirect_to index unless is_logged_in
     # Examine the form post
     # render text: params[:post].inspect
 
@@ -52,7 +46,6 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    redirect_to index unless is_logged_in
     @post = Post.find(params[:id])
     @post.destroy
 

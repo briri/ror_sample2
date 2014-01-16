@@ -1,9 +1,7 @@
-require_relative '../../app/helpers/application_helper'
-
 class CommentsController < ApplicationController
 
-  http_basic_authenticate_with name: "admin", password: "secret",
-                               only: :destroy
+#  http_basic_authenticate_with name: "admin", password: "secret",
+#                               only: :destroy
 
   def create
     @post = Post.find(params[:post_id])
@@ -16,7 +14,6 @@ class CommentsController < ApplicationController
 # Protected by http_basic_auth
 # -------------------------------------------------------
   def destroy
-    redirect_to index unless is_logged_in
     @post = Post.find(params[:post_id])
     @comment = @post.comments.find(params[:id])
     @comment.destroy
