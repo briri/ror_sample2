@@ -14,7 +14,7 @@ Blog::Application.routes.draw do
   get 'users' => 'users#show'
   get 'users/new' => 'users#new'
 
-  post 'users' => 'users#create'
+  post 'users/new' => 'users#create'
   patch 'users/:id' => 'users#login'
   delete 'users/:id' => 'users#logout'
 
