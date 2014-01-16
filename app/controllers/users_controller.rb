@@ -12,12 +12,12 @@ class UsersController < ApplicationController
 
 puts params.inspect
 
-    usrs = User.where(login: "#{params[:login]}")
+    usrs = User.where(login: "#{params['user.login']}")
 
     unless usrs.empty?
       @user = usrs.first
 
-      if @user.password == params[:password]
+      if @user.password == params['user.password']
         session[:user_id] = @user.id
 
         redirect_to posts_path
