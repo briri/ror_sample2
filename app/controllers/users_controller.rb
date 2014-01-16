@@ -11,21 +11,21 @@ class UsersController < ApplicationController
   def login
     @user = User.find_by(:login => params[:login])
 
+    @msg = "#{@user.inspect}<br /><br />#{params.inspect}<br /><br />"
+
     unless @user.nil?
       if @user.password == params[:password]
         session[:user_id] = @user.id
 
         redirect_to posts_path
       else
-        @msg = "Invalid password!"
+        @msg += "Invalid password!"
         render 'show'
       end
     else
-      @msg = "Invalid login!"
+      @msg += "Invalid login!"
       render 'show'
     end
-
-    @msg += "<br />#{@user.inspect}<br />#{params.inspect}"
 
   end
 
