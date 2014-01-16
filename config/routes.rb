@@ -12,11 +12,12 @@ Blog::Application.routes.draw do
   root 'welcome#index'
 
   get 'users' => 'users#show'
-  get 'users/new' => 'users#new'
+  patch 'users' => 'users#login'
+  delete 'users' => 'users#logout'
 
+  get 'users/new' => 'users#new'
   post 'users/new' => 'users#create'
-  patch 'users/:id' => 'users#login'
-  delete 'users/:id' => 'users#logout'
+
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
