@@ -12,7 +12,8 @@ class UsersController < ApplicationController
     @user = User.where(login: params[:login])
 
     @msg = "#{@user.inspect}<br /><br />#{params.inspect}<br /><br />"
-
+p @user.inspect
+    
     unless @user.nil?
       if @user.password == params[:password]
         session[:user_id] = @user.id
