@@ -9,14 +9,13 @@ class UsersController < ApplicationController
   end
 
   def login
-    @user = User.where(login: 'briley')
+    usrs = User.where(login: 'briley')
 
-    @msg = "#{@user.inspect}<br /><br />#{params.inspect}<br /><br />"
+    unless usrs.empty?
+      @user = usrs.first
 
-    unless @user.empty?
-
-      if @user.first.password == params[:password]
-        session[:user_id] = @user.first.id
+      if @user.password == params[:password]
+        session[:user_id] = @user.id
 
         redirect_to posts_path
       else
