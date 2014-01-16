@@ -1,5 +1,8 @@
 class PostsController < ApplicationController
 
+  http_basic_authenticate_with name: "admin", password: "secret",
+                               except: [:index, :show]
+
   def index
     @posts = Post.all
   end
@@ -8,6 +11,9 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
   end
 
+# ------------------------------------------------------------
+# Protected by http_basic_auth
+# ------------------------------------------------------------
   def edit
     @post = Post.find(params[:id])
   end
