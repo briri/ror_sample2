@@ -9,7 +9,10 @@ class UsersController < ApplicationController
   end
 
   def login
-    usrs = User.where(login: "#{params['login']}")
+
+puts params.inspect
+
+    usrs = User.where(login: "#{params[:login]}")
 
     unless usrs.empty?
       @user = usrs.first
