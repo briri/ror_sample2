@@ -1,9 +1,9 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
-one:
-  title: MyString
-  text: MyText
+first:
+  title: This is the first post
+  text: Here is the blog message
 
-two:
-  title: MyString
-  text: MyText
+second:
+  title: Second post
+  text: This is some test data defined in a fixture

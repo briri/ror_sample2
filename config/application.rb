@@ -20,6 +20,7 @@ module Blog
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
 
+    # Makes sure that the db:schema:dump Rake task outputs Ruby
     config.active_record.schema_format = :ruby
   end
 end
